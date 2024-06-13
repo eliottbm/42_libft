@@ -6,7 +6,7 @@
 #    By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/24 14:26:10 by ebengtss          #+#    #+#              #
-#    Updated: 2024/06/03 13:12:39 by ebengtss         ###   ########.fr        #
+#    Updated: 2024/06/13 13:58:04 by ebengtss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME			=	libft.a
 
 CC				=	cc
 CFLAGS			=	-Wall -Wextra -Werror
+AR				=	ar rcs
 
 SRCS_BONUS		=	ft_lstadd_back.c	ft_lstadd_front.c	ft_lstclear.c		\
 					ft_lstiter.c		ft_lstsize.c		ft_lstlast.c		\
@@ -34,24 +35,34 @@ SRCS			=	ft_isascii.c		ft_isprint.c		ft_strlen.c			\
 
 OBJS_BONUS		=	$(SRCS_BONUS:.c=.o)
 OBJS			=	$(SRCS:.c=.o)
-INCS			=	libft.h
 
-.PHONY			:	all clean fclean re bonus
+DEF_COLOR		=	\033[0;39m
+GREEN			=	\033[0;92m
+BLUE			=	\033[0;94m
 
 all				:	$(NAME)
 
 bonus			:	$(OBJS) $(OBJS_BONUS)
-	ar rc $(NAME) $?
-	ranlib $(NAME)
+	@$(AR) $(NAME) $?
+	@echo "LIBFT bonus: $(GREEN)OK$(DEF_COLOR)"
 
 $(NAME)			:	$(OBJS)
-	ar rc $@ $?
-	ranlib $@
+	@$(AR) $@ $?
+	@echo "LIBFT make: $(GREEN)OK$(DEF_COLOR)"
+
+%.o				:	%.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@echo "LIBFT compiling: $<"
 
 clean			:
-	rm -f $(OBJS) $(OBJS_BONUS)
+	@rm -f $(OBJS) $(OBJS_BONUS)
+	@echo "LIBFT clean: $(GREEN)OK$(DEF_COLOR)"
 
 fclean			:	clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "LIBFT fclean: $(GREEN)OK$(DEF_COLOR)"
 
 re				:	fclean all
+	@echo "LIBFT re: $(GREEN)OK$(DEF_COLOR)"
+
+.PHONY			:	all clean fclean re bonus
