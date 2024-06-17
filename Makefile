@@ -6,7 +6,7 @@
 #    By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/24 14:26:10 by ebengtss          #+#    #+#              #
-#    Updated: 2024/06/14 15:19:52 by ebengtss         ###   ########.fr        #
+#    Updated: 2024/06/17 17:23:27 by ebengtss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,31 +37,34 @@ OBJS_BONUS		=	$(SRCS_BONUS:.c=.o)
 OBJS			=	$(SRCS:.c=.o)
 
 DEF_COLOR		=	\033[0;39m
+MAGENTA			=	\033[0;95m
 GREEN			=	\033[0;92m
+DEF_WEIGHT		=	\e[0m
+BOLD_WEIGHT		=	\e[1m
 
 all				:	$(NAME)
 
 bonus			:	$(OBJS) $(OBJS_BONUS)
 	@$(AR) $(NAME) $?
-	@echo "LIBFT bonus: $(GREEN)OK$(DEF_COLOR)"
+	@echo "$(BOLD_WEIGHT)[LIBFT]$(DEF_WEIGHT) bonus: $(GREEN)OK$(DEF_COLOR)"
 
 $(NAME)			:	$(OBJS)
 	@$(AR) $@ $?
-	@echo "LIBFT make: $(GREEN)OK$(DEF_COLOR)"
+	@echo "$(BOLD_WEIGHT)[LIBFT]$(DEF_WEIGHT) make: $(GREEN)OK$(DEF_COLOR)"
 
 %.o				:	%.c
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "LIBFT compiling: $<"
+	@echo "$(BOLD_WEIGHT)[LIBFT]$(DEF_WEIGHT) compiling: $(MAGENTA) $< $(DEF_COLOR)"
 
 clean			:
 	@rm -f $(OBJS) $(OBJS_BONUS)
-	@echo "LIBFT clean: $(GREEN)OK$(DEF_COLOR)"
+	@echo "$(BOLD_WEIGHT)[LIBFT]$(DEF_WEIGHT) clean: $(GREEN)OK$(DEF_COLOR)"
 
 fclean			:	clean
 	@rm -f $(NAME)
-	@echo "LIBFT fclean: $(GREEN)OK$(DEF_COLOR)"
+	@echo "$(BOLD_WEIGHT)[LIBFT]$(DEF_WEIGHT) fclean: $(GREEN)OK$(DEF_COLOR)"
 
 re				:	fclean all
-	@echo "LIBFT re: $(GREEN)OK$(DEF_COLOR)"
+	@echo "$(BOLD_WEIGHT)[LIBFT]$(DEF_WEIGHT) re: $(GREEN)OK$(DEF_COLOR)"
 
 .PHONY			:	all clean fclean re bonus
