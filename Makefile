@@ -6,21 +6,23 @@
 #    By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/24 14:26:10 by ebengtss          #+#    #+#              #
-#    Updated: 2024/06/17 17:23:27 by ebengtss         ###   ########.fr        #
+#    Updated: 2024/06/21 13:42:09 by ebengtss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+MAKEFLAGS 		+=	--no-print-directory
 
 NAME			=	libft.a
 
 CC				=	cc
-CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror -I
 AR				=	ar rcs
 
-SRCS_BONUS		=	ft_lstadd_back.c	ft_lstadd_front.c	ft_lstclear.c		\
-					ft_lstiter.c		ft_lstsize.c		ft_lstlast.c		\
-					ft_lstmap.c			ft_lstdelone.c		ft_lstnew.c
+SRCS_DIR		=	srcs/
+OBJS_DIR		=	objs/
+INCS_DIR		=	incs
 
-SRCS			=	ft_isascii.c		ft_isprint.c		ft_strlen.c			\
+SRCS_FILES		=	ft_isascii.c		ft_isprint.c		ft_strlen.c			\
 					ft_isalnum.c		ft_bzero.c			ft_atoi.c			\
 					ft_memcpy.c			ft_split.c			ft_memchr.c			\
 					ft_calloc.c			ft_strmapi.c		ft_putnbr_fd.c		\
@@ -31,10 +33,13 @@ SRCS			=	ft_isascii.c		ft_isprint.c		ft_strlen.c			\
 					ft_strlcpy.c		ft_itoa.c			ft_putendl_fd.c		\
 					ft_strrchr.c		ft_strncmp.c		ft_substr.c			\
 					ft_strtrim.c		ft_putstr_fd.c		ft_isalpha.c		\
-					ft_isdigit.c
+					ft_isdigit.c		ft_lstadd_back.c	ft_lstadd_front.c	\
+					ft_lstclear.c		ft_lstiter.c		ft_lstsize.c		\
+					ft_lstlast.c		ft_lstmap.c			ft_lstdelone.c		\
+					ft_lstnew.c
 
-OBJS_BONUS		=	$(SRCS_BONUS:.c=.o)
-OBJS			=	$(SRCS:.c=.o)
+SRCS			=	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
+OBJS			=	$(addprefix $(OBJS_DIR), $(SRCS_FILES:.c=.o))
 
 DEF_COLOR		=	\033[0;39m
 MAGENTA			=	\033[0;95m
@@ -42,22 +47,23 @@ GREEN			=	\033[0;92m
 DEF_WEIGHT		=	\e[0m
 BOLD_WEIGHT		=	\e[1m
 
-all				:	$(NAME)
+OBJSF			=	.cache_exists
 
-bonus			:	$(OBJS) $(OBJS_BONUS)
-	@$(AR) $(NAME) $?
-	@echo "$(BOLD_WEIGHT)[LIBFT]$(DEF_WEIGHT) bonus: $(GREEN)OK$(DEF_COLOR)"
+all				:	$(NAME)
 
 $(NAME)			:	$(OBJS)
 	@$(AR) $@ $?
 	@echo "$(BOLD_WEIGHT)[LIBFT]$(DEF_WEIGHT) make: $(GREEN)OK$(DEF_COLOR)"
 
-%.o				:	%.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+$(OBJS_DIR)%.o	:	$(SRCS_DIR)%.c | $(OBJSF)
+	@$(CC) $(CFLAGS) $(INCS_DIR) -c $< -o $@
 	@echo "$(BOLD_WEIGHT)[LIBFT]$(DEF_WEIGHT) compiling: $(MAGENTA) $< $(DEF_COLOR)"
 
+$(OBJSF)	:
+	@mkdir -p $(OBJS_DIR)
+
 clean			:
-	@rm -f $(OBJS) $(OBJS_BONUS)
+	@rm -rf $(OBJS_DIR)
 	@echo "$(BOLD_WEIGHT)[LIBFT]$(DEF_WEIGHT) clean: $(GREEN)OK$(DEF_COLOR)"
 
 fclean			:	clean
@@ -65,6 +71,5 @@ fclean			:	clean
 	@echo "$(BOLD_WEIGHT)[LIBFT]$(DEF_WEIGHT) fclean: $(GREEN)OK$(DEF_COLOR)"
 
 re				:	fclean all
-	@echo "$(BOLD_WEIGHT)[LIBFT]$(DEF_WEIGHT) re: $(GREEN)OK$(DEF_COLOR)"
 
 .PHONY			:	all clean fclean re bonus
