@@ -6,16 +6,22 @@
 /*   By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:37:52 by ebengtss          #+#    #+#             */
-/*   Updated: 2024/05/31 15:09:05 by ebengtss         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:29:48 by ebengtss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stddef.h>
-# include <stdlib.h>
 # include <unistd.h>
+# include <stdlib.h>
+# include <stddef.h>
+# include <stdarg.h>
+# include <stdint.h>
+
+# ifndef GBL_BUFFER_SIZE
+#  define GNL_BUFFER_SIZE 1
+# endif
 
 typedef struct s_list
 {
@@ -56,6 +62,18 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 
 void	ft_lstiter(t_list *lst, void (*f)(void *));
+
+void	ft_putchar_len(char c, int *counter);
+
+void	ft_putstr_len(char *s, int *counter);
+
+void	ft_putnbr_len(int n, int *counter);
+
+void	ft_puthex_len(unsigned int nb, int uplow, int *counter);
+
+void	ft_putuns_len(unsigned int n, int *counter);
+
+void	ft_getaddress(void *ptr, int *counter);
 
 void	*ft_memset(void *s, int c, size_t n);
 
@@ -108,5 +126,9 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_atoi(char const *str);
 
 int		ft_lstsize(t_list *lst);
+
+int		ft_printf(const char *args, ...);
+
+int		is_nl(char *line);
 
 #endif
