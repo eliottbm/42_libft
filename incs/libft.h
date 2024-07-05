@@ -19,7 +19,7 @@
 # include <stdarg.h>
 # include <stdint.h>
 
-# ifndef GBL_BUFFER_SIZE
+# ifndef GNL_BUFFER_SIZE
 #  define GNL_BUFFER_SIZE 1
 # endif
 
