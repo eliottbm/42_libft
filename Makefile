@@ -6,7 +6,7 @@
 #    By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/24 14:26:10 by ebengtss          #+#    #+#              #
-#    Updated: 2024/06/24 15:47:11 by ebengtss         ###   ########.fr        #
+#    Updated: 2024/07/25 17:13:43 by ebengtss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,29 +49,33 @@ MAGENTA			=	\033[0;95m
 GREEN			=	\033[0;92m
 DEF_WEIGHT		=	\e[0m
 BOLD_WEIGHT		=	\e[1m
+OPACITY			=	\e[2m
+RESET_LINE		=	\033[A\033[K
 
 OBJSF			=	.cache_exists
 
 all				:	$(NAME)
 
 $(NAME)			:	$(OBJS)
+	@echo "$(RESET_LINE)$(BOLD_WEIGHT)$(OPACITY)[ LIBFT ]$(DEF_WEIGHT) compiling:	$(GREEN) ✔ $(DEF_COLOR)"
 	@$(AR) $@ $?
-	@echo "$(BOLD_WEIGHT)[LIBFT]$(DEF_WEIGHT) make: $(GREEN)OK$(DEF_COLOR)"
+	@echo "$(BOLD_WEIGHT)$(OPACITY)[ LIBFT ]$(DEF_WEIGHT) make:		$(GREEN) ✔ $(DEF_COLOR)"
 
 $(OBJS_DIR)%.o	:	$(SRCS_DIR)%.c | $(OBJSF)
 	@$(CC) $(CFLAGS) $(INCS_DIR) -c $< -o $@
-	@echo "$(BOLD_WEIGHT)[LIBFT]$(DEF_WEIGHT) compiling: $(MAGENTA) $< $(DEF_COLOR)"
+	@echo "$(RESET_LINE)$(BOLD_WEIGHT)$(OPACITY)[ LIBFT ]$(DEF_WEIGHT) compiling:	$(GREEN) $< $(DEF_COLOR)"
 
 $(OBJSF)	:
+	@echo "$(BOLD_WEIGHT)$(OPACITY)[ LIBFT ]$(DEF_WEIGHT) nothing to do"
 	@mkdir -p $(OBJS_DIR)
 
 clean			:
 	@rm -rf $(OBJS_DIR)
-	@echo "$(BOLD_WEIGHT)[LIBFT]$(DEF_WEIGHT) clean: $(GREEN)OK$(DEF_COLOR)"
+	@echo "$(BOLD_WEIGHT)$(OPACITY)[ LIBFT ]$(DEF_WEIGHT) clean:	$(GREEN) ✔ $(DEF_COLOR)"
 
 fclean			:	clean
 	@rm -f $(NAME)
-	@echo "$(BOLD_WEIGHT)[LIBFT]$(DEF_WEIGHT) fclean: $(GREEN)OK$(DEF_COLOR)"
+	@echo "$(BOLD_WEIGHT)$(OPACITY)[ LIBFT ]$(DEF_WEIGHT) fclean:	$(GREEN) ✔ $(DEF_COLOR)"
 
 re				:	fclean all
 
