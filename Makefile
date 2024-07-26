@@ -6,7 +6,7 @@
 #    By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/24 14:26:10 by ebengtss          #+#    #+#              #
-#    Updated: 2024/07/26 15:43:58 by ebengtss         ###   ########.fr        #
+#    Updated: 2024/07/26 15:45:35 by ebengtss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,6 @@ SRCS_FILES		=	ft_isascii.c		ft_isprint.c		ft_strlen.c			\
 					ft_putstr_len.c		ft_putuns_len.c		ft_gnl_utils.c		\
 					ft_get_next_line.c
 
-SRCS			=	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
 OBJS			=	$(addprefix $(OBJS_DIR), $(SRCS_FILES:.c=.o))
 
 DEF_COLOR		=	\033[0;39m
