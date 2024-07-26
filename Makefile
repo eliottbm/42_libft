@@ -6,7 +6,7 @@
 #    By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/24 14:26:10 by ebengtss          #+#    #+#              #
-#    Updated: 2024/07/25 17:27:55 by ebengtss         ###   ########.fr        #
+#    Updated: 2024/07/26 15:43:58 by ebengtss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,6 @@ SRCS			=	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
 OBJS			=	$(addprefix $(OBJS_DIR), $(SRCS_FILES:.c=.o))
 
 DEF_COLOR		=	\033[0;39m
-MAGENTA			=	\033[0;95m
 GREEN			=	\033[0;92m
 DEF_STYLE		=	\e[0m
 BOLD_OPACITY	=	\e[1m\e[2m
