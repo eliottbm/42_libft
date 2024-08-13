@@ -6,11 +6,11 @@
 /*   By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 11:04:44 by ebengtss          #+#    #+#             */
-/*   Updated: 2024/05/28 14:58:07 by ebengtss         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:55:50 by ebengtss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../incs/libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

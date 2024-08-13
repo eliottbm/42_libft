@@ -6,18 +6,18 @@
 /*   By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 11:16:06 by ebengtss          #+#    #+#             */
-/*   Updated: 2024/05/29 17:04:51 by ebengtss         ###   ########.fr       */
+/*   Updated: 2024/08/13 15:21:17 by ebengtss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../incs/libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*str;
 	size_t	i;
 	size_t	j;
 	size_t	k;
+	char	*str;
 
 	k = 0;
 	i = 0;

@@ -6,11 +6,11 @@
 /*   By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:03:52 by ebengtss          #+#    #+#             */
-/*   Updated: 2024/05/30 15:46:35 by ebengtss         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:55:50 by ebengtss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../incs/libft.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {

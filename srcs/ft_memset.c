@@ -6,11 +6,11 @@
 /*   By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 14:43:47 by ebengtss          #+#    #+#             */
-/*   Updated: 2024/05/31 15:09:19 by ebengtss         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:55:50 by ebengtss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../incs/libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {

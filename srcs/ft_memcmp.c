@@ -6,11 +6,11 @@
 /*   By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 11:39:38 by ebengtss          #+#    #+#             */
-/*   Updated: 2024/05/27 13:59:11 by ebengtss         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:55:50 by ebengtss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../incs/libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebengtss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:21:12 by ebengtss          #+#    #+#             */
-/*   Updated: 2024/05/21 11:42:37 by ebengtss         ###   ########.fr       */
+/*   Updated: 2024/08/13 15:01:08 by ebengtss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../incs/libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
-	char	*str;
 	size_t	i;
+	char	*str;
 
 	str = (char *)s;
 	i = 0;

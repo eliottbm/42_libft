@@ -6,17 +6,17 @@
 /*   By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:43:40 by ebengtss          #+#    #+#             */
-/*   Updated: 2024/05/28 15:48:04 by ebengtss         ###   ########.fr       */
+/*   Updated: 2024/08/13 15:03:35 by ebengtss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../incs/libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
+	size_t	i;
 	char	*strdest;
 	char	*strsrc;
-	size_t	i;
 
 	if (!dest && !src)
 		return (NULL);

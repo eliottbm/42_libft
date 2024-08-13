@@ -6,17 +6,17 @@
 /*   By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 10:19:26 by ebengtss          #+#    #+#             */
-/*   Updated: 2024/05/31 17:00:04 by ebengtss         ###   ########.fr       */
+/*   Updated: 2024/08/13 15:21:08 by ebengtss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../incs/libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
+	size_t	i;
 	char	*str;
 	char	cchar;
-	int		i;
 
 	str = (char *)s;
 	cchar = (char)c;

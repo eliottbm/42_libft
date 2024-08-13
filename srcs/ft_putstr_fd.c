@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebengtss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 12:54:05 by ebengtss          #+#    #+#             */
-/*   Updated: 2024/05/24 12:57:44 by ebengtss         ###   ########.fr       */
+/*   Updated: 2024/08/13 17:08:58 by ebengtss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../incs/libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {
@@ -22,4 +22,10 @@ void	ft_putstr_fd(char *s, int fd)
 		write(fd, &(s[i]), 1);
 		i++;
 	}
+}
+
+void	ft_puterror(char *s)
+{
+	ft_putstr_fd("Error\n", STDERR_FILENO);
+	ft_putstr_fd(s, STDERR_FILENO);
 }

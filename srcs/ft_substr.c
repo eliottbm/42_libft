@@ -6,11 +6,11 @@
 /*   By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 15:50:54 by ebengtss          #+#    #+#             */
-/*   Updated: 2024/05/31 18:39:33 by ebengtss         ###   ########.fr       */
+/*   Updated: 2024/08/13 16:49:20 by ebengtss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../incs/libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -28,6 +28,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str = malloc(sizeof(char) * (size + 1));
 	if (!str)
 		return (NULL);
-	ft_strlcpy(str, &s[start], size + 1);
+	ft_strlcpy(str, &s[start], size);
 	return (str);
 }

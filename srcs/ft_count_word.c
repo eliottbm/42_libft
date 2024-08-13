@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_len.c                                   :+:      :+:    :+:   */
+/*   ft_count_word.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 12:10:10 by ebengtss          #+#    #+#             */
-/*   Updated: 2024/06/24 14:00:54 by ebengtss         ###   ########.fr       */
+/*   Created: 2024/08/13 15:17:53 by ebengtss          #+#    #+#             */
+/*   Updated: 2024/08/13 16:57:53 by ebengtss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../incs/libft.h"
 
-void	ft_putchar_len(char c, int *counter)
+int	ft_count_word(char const *str, char set)
 {
-	write(1, &c, 1);
-	*counter += 1;
+	int	i;
+	int	counter;
+
+	i = 0;
+	counter = 0;
+	while (str[i])
+	{
+		if (i == 0 && str[i] != set)
+			counter++;
+		if (str[i] == set && str[i + 1] != '\0'
+			&& str[i + 1] != set)
+			counter++;
+		i++;
+	}
+	return (counter);
 }

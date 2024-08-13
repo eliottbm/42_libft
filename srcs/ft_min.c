@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnr_len.c                                    :+:      :+:    :+:   */
+/*   ft_min.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 13:06:14 by ebengtss          #+#    #+#             */
-/*   Updated: 2024/06/14 13:30:23 by ebengtss         ###   ########.fr       */
+/*   Created: 2024/08/13 14:48:13 by ebengtss          #+#    #+#             */
+/*   Updated: 2024/08/13 14:55:50 by ebengtss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../incs/libft.h"
 
-void	ft_putuns_len(unsigned int n, int *counter)
+int	ft_min(int a, int b)
 {
-	char	c;
-
-	if (n > 9)
-	{
-		ft_putuns_len((n / 10), counter);
-		ft_putuns_len((n % 10), counter);
-	}
-	else
-	{
-		c = n + '0';
-		ft_putchar_len(c, counter);
-	}
+	if (a > b)
+		return (b);
+	return (a);
 }

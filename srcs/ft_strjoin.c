@@ -3,36 +3,69 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebengtss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ebengtss <ebengtss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:07:34 by ebengtss          #+#    #+#             */
-/*   Updated: 2024/05/22 16:30:55 by ebengtss         ###   ########.fr       */
+/*   Updated: 2024/08/13 16:57:22 by ebengtss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../incs/libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
-	int		i;
-	int		j;
+	size_t	lens1;
+	size_t	lens2;
 
-	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	lens1 = ft_strlen(s1);
+	lens2 = ft_strlen(s2);
+	str = malloc(sizeof(char) * (lens1 + lens2 + 1));
 	if (!str)
 		return (NULL);
-	i = 0;
-	j = 0;
-	while (s1[i])
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	while (s2[j])
-	{
-		str[i + j] = s2[j];
-		j++;
-	}
-	str[i + j] = '\0';
+	ft_strlcpy(str, s1, lens1);
+	ft_strlcpy(&(str[lens1]), s2, lens2);
+	return (str);
+}
+
+char	*ft_strjoin_s1(char const *s1, char const *s2)
+{
+	char	*str;
+	size_t	lens1;
+	size_t	lens2;
+
+	if (!s1)
+		return (ft_strdup(s2));
+	if (!s2)
+		return (free((void *)s1), NULL);
+	lens1 = ft_strlen(s1);
+	lens2 = ft_strlen(s2);
+	str = malloc(sizeof(char) * (lens1 + lens2 + 1));
+	if (!str)
+		return (free((void *)s1), NULL);
+	ft_strlcpy(str, s1, lens1);
+	ft_strlcpy(&(str[lens1]), s2, lens2);
+	free((void *)s1);
+	return (str);
+}
+
+char	*ft_strjoin_s2(char const *s1, char const *s2)
+{
+	char	*str;
+	size_t	lens1;
+	size_t	lens2;
+
+	if (!s2)
+		return (ft_strdup(s1));
+	if (!s1)
+		return (free((void *)s2), NULL);
+	lens1 = ft_strlen(s1);
+	lens2 = ft_strlen(s2);
+	str = malloc(sizeof(char) * (lens1 + lens2 + 1));
+	if (!str)
+		return (free((void *)s2), NULL);
+	ft_strlcpy(str, s1, lens1);
+	ft_strlcpy(&(str[lens1]), s2, lens2);
+	free((void *)s2);
 	return (str);
 }
