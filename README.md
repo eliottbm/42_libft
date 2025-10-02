@@ -7,5 +7,5 @@ Il met l’accent sur la compréhension fine du langage C, la réécriture de fo
 ## Utilisation
 ```
 make
-# compile la librairie 'libft.a'
+# Compile la librairie 'libft.a'
 ```
